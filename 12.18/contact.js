@@ -84,10 +84,7 @@ $(function(){
         let keys = Object.keys(obj).sort();
         tip.innerText = keys[0];
         console.log(keys);
-        li.onclick = function(e){
-            console.log(1)
 
-        }
         keys.forEach(element => {
             /*element obj[element]*/
             sidebar.innerHTML += `<li>${element}</li>`;
