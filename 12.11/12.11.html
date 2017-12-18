@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="function.js"></script>
+<style>
+    .box{
+        position:relative;
+    }
+    .son{
+        position:absolute;
+    }
+</style>
+<body>
+<div class="box"style="position:relative;">
+    <div class="son">this is son</div>
+    <div></div>
+    <div></div>
+</div>
+<div>
+
+</div>
+<div>
+
+</div>
+
+</body>
+</html>
+<script>
+$(function(){
+    let box = $('.box')[0];
+    let divs = $('div',box);
+    console.log(divs);
+//    let divs = $('<div>');
+    let son = $('.son')[0];
+    divs.innerText = 'this is div';
+
+    let offset = son.offsetParents();
+    console.log(offset);
+
+
+})
+</script>
+
+
+
+
+
+
+
+

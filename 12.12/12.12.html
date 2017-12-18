@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跟随鼠标移动</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        border-radius: 50%;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script src="../function.js"></script>
+<script>
+//    $(function() {
+//        let box = $('.box')[0];
+//        console.log(box);
+//        box.onmousedown = function(e){
+//            let ox = e.offsetX,
+//                oy = e.offsetY;
+//            document.onmousemove = function(e){
+//                let cx = e.clientX,
+//                    cy = e.clientY;
+//                box.style.left = cx - ox + 'px';
+//                box.style.top = cy - oy + 'px';
+//            }
+//        }
+//        box.onmouseup = function(){
+//            document.onmousemove = null;
+//        }
+//    }
+window.onload = function(){
+    let box = document.getElementsByClassName('box')[0];
+    let ox, oy;
+    box.addEventListener('mousedown', function (e) {
+        ox = e.offsetX;
+        oy = e.offsetY;
+        document.addEventListener('mousemove', fn);
+    });
+    box.addEventListener('mouseup', function () {
+        document.removeEventListener('mousemove',fn);
+    });
+
+    function fn(e) {
+        let cx = e.clientX;
+        let cy = e.clientY;
+        box.style.left = cx - ox + 'px';
+        box.style.top = cy - oy + 'px';
+    }
+}
+
+</script>
+
+
+
+
+
+
+
+
+

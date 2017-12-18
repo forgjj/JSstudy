@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>返回顶部</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        border:0;
+        list-style: none;
+
+    }
+    .box{
+        width:1000px;
+        height:4000px;
+        border:1px solid red;
+        margin: 50px auto;
+
+    }
+    .tiao{
+        width:100px;
+        height:60px;
+        background-color: red;
+        color:#fff;
+        border-radius: 50%;
+        font-size: 30px;
+        line-height: 60px;
+        text-align: center;
+        position: fixed;
+        bottom:0;
+        right:0;
+        opacity: 0;
+        /*display: none;*/
+    }
+    a{
+        display:block;
+        width:auto ;
+        height:60px;
+        line-height: 60px;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 40px;
+        text-decoration: none;
+        color:firebrick;
+    }
+
+</style>
+<body>
+    <a href="ding.html">
+        下一页
+    </a>
+    <div class="box">
+
+    </div>
+    <div class="tiao">
+        TOP
+    </div>
+
+</body>
+</html>
+<script>
+    var td = document.querySelector('.tiao');
+//    console.log(td);
+    window.onscroll = function(){
+
+        if(window.pageYOffset>200){
+            td.style.opacity=1;
+
+        }else {
+            td.style.opacity=0;
+
+        }
+    }
+    td.onclick=function () {
+        var tim = setInterval(function () {
+            window.scrollBy(0,-20);
+            if(window.pageYOffset==0){
+                clearInterval(tim);
+            }
+        },0)
+    }
+
+
+</script>

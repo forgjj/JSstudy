@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>float</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    .box{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        position:absolute;
+        top:0;
+        left:0;
+        background-color: aqua;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+    window.onload = function(){
+        let box = document.querySelector('.box');
+//        let tops = box.offsetTop;
+//        let wtop = window.innerHeight;
+//        let lefts = box.offsetLeft;
+        let maxh = window.innerHeight - box.offsetHeight;
+        let maxw = window.innerWidth - box.offsetWidth;
+        let speeds = 10;
+        let speedx = 40;
+        setInterval(move,100);
+        function move(){
+            let tops = box.offsetTop + speeds  ;
+            let lefts = box.offsetLeft + speedx;
+//            tops += speeds;
+//            lefts+=speedx;
+            box.style.top=tops + 'px';
+            box.style.left=lefts+ 'px';
+            if(tops>=maxh){
+                tops=maxh;
+                speeds*=-1;
+
+            }
+            if(tops <= 0){
+                tops = 0;
+                speeds*=-1;
+            }
+            if(lefts>=maxw){
+                lefts=maxw;
+                speedx*=-1;
+
+            }
+            if(lefts <= 0){
+                lefts = 0;
+                speedx*=-1;
+            }
+
+        }
+    }
+</script>

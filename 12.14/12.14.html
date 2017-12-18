@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 200px;
+        height: 200px;
+        border: 1px solid aqua;
+    }
+    .son{
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+    }
+    .brother{
+        width: 150px;
+        height: 150px;
+        border: 1px solid blue;
+    }
+</style>
+
+<body>
+    <div class="box" onclick="alert(box)">
+        <div class="son"></div>
+        <h1>this is h1</h1>
+    </div>
+    <div class="brother">
+
+    </div>
+</body>
+</html>
+<script src="../function.js"></script>
+<script>
+$(function(){
+    let box = $('.box')[0];
+    let son = $('.son',box)[0];
+    let H1 = $('h1',box)[0];
+    box.onclick = function(e){
+        let element = e.target;
+        console.log(e);
+        if(element.className == 'son'){
+            element.style.borderRadius = '50%';
+        }else if(element.className == 'H1'){
+            element.style.color='red';
+        }
+    }
+})
+
+</script>

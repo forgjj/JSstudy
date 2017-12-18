@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    .box{
+        width: 150px;
+        height: 150px;
+        background: aqua;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script src="12.13.js"></script>
+<script>
+let box = document.querySelector('.box');
+console.log(box);
+let boxf = new Float(box);
+boxf.start();
+document.onclick = function(){
+    boxf.stop()
+}
+window.onresize = function(){
+    boxf.resize()
+}
+</script>
+
+
+
+
+
+
+
+
+
+

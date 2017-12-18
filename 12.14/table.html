@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+        border:0;
+        list-style: none;
+    }
+    body{
+        background: #f6f6f6;
+    }
+    .content{
+        width: 600px;
+        height:auto;
+        margin:40px auto;
+    }
+    table{
+        width: 100%;
+        height: auto;
+        border:1px solid #2EFEFF;
+        padding:6px 12px;
+        border-collapse:collapse;
+        border-radius: 6px;
+    }
+    tr{
+        width: 100%;
+        height: 40px;
+        text-align: center;
+    }
+    tr:nth-of-type(2n){
+        background: #c2f6ed;
+    }
+    tr:nth-of-type(2n+1){
+        background: #d7cdf6;
+    }
+    tr>th{
+        border:1px solid #000;
+    }
+    tr>td{
+        border:1px solid #000;
+
+    }
+    button{
+        width: 600px;
+        height: 40px;
+        margin: 6px auto;
+        border-radius: 6px;
+        font-size: 24px;
+        color: #f6007f;
+        background: #00f6f2;
+        outline: none;
+    }
+    input{
+        width: 50%;
+        height: 35px;
+    }
+</style>
+<body>
+    <div class="content">
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>籍贯</th>
+                <th>电话</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>20</td>
+                <td>长治</td>
+                <td>123456789</td>
+                <td class="del">删除</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>20</td>
+                <td>长治</td>
+                <td>123456789</td>
+                <td class="del">删除</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>20</td>
+                <td>长治</td>
+                <td>123456789</td>
+                <td class="del">删除</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>20</td>
+                <td>长治</td>
+                <td>123456789</td>
+                <td class="del">删除</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>20</td>
+                <td>长治</td>
+                <td>123456789</td>
+                <td class="del">删除</td>
+            </tr>
+
+        </table>
+        <button>
+            添&nbsp;&nbsp; 加
+        </button>
+    </div>
+</body>
+</html>
+<script>
+    window.onload = function(){
+        let table = document.querySelector('tbody');
+        let td = document.querySelectorAll('td');
+        table.ondblclick = function(e){
+            let element = e.target;
+            if(element.nodeName == 'TD' && element.className !='del'){
+                let old = element.innerText;
+                element.innerText = '';
+                let inputs =document.createElement('input');
+                element.appendChild(inputs);
+                inputs.value = old;
+                inputs.onblur = function(){
+                    let newv = inputs.value;
+                    element.removeChild(inputs);
+                    element.innerText=newv;
+                }
+            }else if(element.className == 'del'){
+                let trs = element.parentNode;
+                table.removeChild(trs);
+            }
+        }
+        let button =document.querySelector('button');
+        console.log(button);
+        button.ondblclick = function(){
+            table.innerHTML= table.innerHTML+   `
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="del">删除</td>
+                </tr>
+            `;
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
