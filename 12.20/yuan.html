@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个圆</title>
+</head>
+<body>
+    <canvas width="300" height="400">
+
+    </canvas>
+</body>
+</html>
+<script>
+    let canvas = document.querySelector('canvas');
+    let ctx = canvas.getContext('2d');
+    ctx.strokeRect(0,0,300,400);
+    let PI = Math.PI;
+    for(let i=0;i<4;i++){
+        for(let j=0;j<3;j++){
+            let x = (j+1)*10+(2*j+1)*40,
+                y = (i+1)*10+(2*i+1)*40,
+                color = `rgb(${(255-85)*i},0,${(255-85)*j})`,
+                wise = i%2==0?false:true ;
+            ctx.beginPath();
+            ctx.arc(x,y,40,0,PI+PI/2*j,wise);
+            if(i>1){
+                ctx.fillStyle = color;
+                ctx.fill();
+            }else{
+                ctx.strokeStyle = color;
+                ctx.stroke();
+            }
+        }
+    }
+
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<body>
+    <div>
+        倒计时 <span></span>分 <span></span>秒
+    </div>
+</body>
+</html>
+
+<script>
+    let date = new Date();
+    let spans = document.querySelectorAll('span');
+    console.log(spans);
+    date.setMinutes(date.getMinutes()+10);
+    move();
+    setInterval(move,1000);
+    function move(){
+        let now = new Date;
+        let arr = [];
+        let time = Math.floor((date.getTime() - now.getTime())/1000);
+        let m = Math.floor(time / 60);
+        arr.push(m);
+        let s = Math.floor(time % 60);
+        arr.push(s);
+        spans.forEach((element, index) => {
+                element.innerText = arr[index];
+        })
+    }
+
+
+
+</script>

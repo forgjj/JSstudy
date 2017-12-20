@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转盘</title>
+</head>
+<body>
+    <canvas width="500" height="500">
+
+    </canvas>
+</body>
+</html>
+<script>
+    /*
+    *  转盘转动 递增
+    * */
+    let canvas = document.querySelector('canvas');
+    let ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.strokeRect(0,0,500,500);
+    ctx.fill();
+    ctx.closePath();
+    let a = 0;
+    let t = setInterval(function(){
+        a++;
+        let dge = 2*Math.PI/100;
+        let r = 150;
+        ctx.clearRect(100,100,300,300);
+        ctx.beginPath();
+        ctx.moveTo(400,250);
+        ctx.arc(250,250,r,0,dge*a);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'aqua';
+        ctx.stroke();
+        ctx.closePath();
+        ctx.font = '24px San Francisco';
+        ctx.strokeText(`${a}%`,240,260);
+        if(a == 100){
+            clearInterval(t);
+        }
+    },100)
+
+
+
+
+</script>

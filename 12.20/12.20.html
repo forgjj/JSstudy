@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+</head>
+<body>
+    <div class="box">
+        距离圣诞节还有<span></span>天<span></span>小时<span></span>分<span></span>秒
+    </div>
+
+</body>
+</html>
+<script>
+    window.onload = function (){
+        let date = new Date(2017, 11, 25, 12, 30, 0);
+        let spans = document.querySelectorAll('span');
+        console.log(spans);
+        move();
+        setInterval(move, 1000);
+        function move(){
+            let now = new Date();
+            let arr = [];
+            let time = Math.floor(date.getTime() - now.getTime()) / 1000;
+            let d = Math.floor(time / 60 / 60 / 24);
+            arr.push(d);
+            time = time % (60 * 60 * 24);
+            let h = Math.floor(time / (60 * 60));
+            arr.push(h);
+            time %= (60 * 60);
+            let m = Math.floor(time / 60);
+            arr.push(m);
+            let s = Math.floor(time % 60);
+            arr.push(s);
+            spans.forEach((element, index) => {
+                element.innerText = arr[index];
+            })
+        }
+    }
+
+
+</script>
