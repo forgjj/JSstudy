@@ -34,11 +34,12 @@
         ctx.stroke();
         ctx.closePath();
         ctx.font = '24px San Francisco';
+
         ctx.strokeText(`${a}%`,240,260);
         if(a == 100){
             clearInterval(t);
         }
-    },100)
+    },60)
 
 
 

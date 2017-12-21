@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width: 500px;
+
+        margin:0 auto;
+    }
+</style>
+<body>
+    <div>
+        <canvas width="500" height="500">
+        </canvas>
+    </div>
+</body>
+</html>
+<script>
+    let canvas = document.querySelector('canvas');
+    let ctx = canvas.getContext('2d');
+    ctx.strokeRect(0,0,500,500);
+    ploy(6);
+    function ploy(num){
+        let dge = Math.PI/num;
+        let R = 200,r = 200/3;
+
+        ctx.beginPath();
+        ctx.moveTo(250+R,250);
+        for(let i=0;i<num*2;i++){
+            let x,y;
+            if(i%2==0){
+                x = 250+R*Math.cos(dge*i),
+                y = 250+R*Math.sin(dge*i);
+                ctx.lineTo(x,y);
+            }else{
+                x = 250+r*Math.cos(dge*i),
+                y = 250+r*Math.sin(dge*i);
+                ctx.lineTo(x,y);
+            }
+        }
+        ctx.closePath();
+        ctx.stroke();
+    }
+
+
+</script>

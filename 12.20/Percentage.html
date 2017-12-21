@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Percentage</title>
+</head>
+<style>
+    canvas{
+        border:1px solid #000;
+    }
+</style>
+<body>
+    <canvas width="500" height="500">
+
+    </canvas>
+    <script>
+        let canvas = document.querySelector('canvas');
+        let ctx = canvas.getContext('2d');
+        let t = setInterval(move,60);
+        let n = 0;
+        function move(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            n++;
+            let dge = n*Math.PI/50;
+            ctx.beginPath();
+            ctx.arc(250,250,200,0,dge);
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            ctx.lineCap = 'round';
+            ctx.font = '40px serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.strokeText(`${n}%`,250,250);
+            if(n==80){
+                clearInterval(t);
+            }
+        }
+    </script>
+
+</body>
+</html>

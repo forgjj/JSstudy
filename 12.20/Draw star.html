@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Draw star</title>
+</head>
+<style>
+    canvas{
+        border:1px solid #00c3f5;
+    }
+</style>
+<body>
+    <canvas width="1000" height="1000"></canvas>
+
+    <script>
+        let canvas = document.querySelector('canvas');
+        let ctx = canvas.getContext('2d');
+        let imagedate = [];
+        canvas.onmousedown = function(e){
+            let ox = e.offsetX,oy = e.offsetY;
+            canvas.onmousemove = function(e){
+                let mx = e.offsetX,my = e.offsetY;
+                let R = Math.sqrt(Math.pow(ox-mx,2) + Math.pow(oy-my,2));
+                let r = R/3;
+                ploy(ox,oy,R,r,5)
+            };
+            canvas.onmouseup = function(){
+                imagedate.push(ctx.getImageData(0,0,canvas.width,canvas.height));
+                canvas.onmousemove = null;
+            };
+        };
+
+        function ploy(ox,oy,R,r,num){
+            let dge = Math.PI/num;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            if(imagedate.length){
+                ctx.putImageData(imagedate[imagedate.length-1],0,0);
+            };
+            ctx.beginPath();
+            ctx.moveTo(ox+R,oy);
+            for(let i=0;i<num*2;i++){
+                let x,y;
+                if(i%2==0){
+                    x = ox+R*Math.cos(dge*i),
+                        y = oy+R*Math.sin(dge*i);
+                    ctx.lineTo(x,y);
+                }else{
+                    x = ox+r*Math.cos(dge*i),
+                        y = oy+r*Math.sin(dge*i);
+                    ctx.lineTo(x,y);
+                }
+            };
+            ctx.closePath();
+            ctx.stroke();
+            window.onkeydown = function(e){
+
+                if(e.ctrlKey &&e.key == 'z'){
+                    console.log(1)
+                    if(imagedate.length) {
+                        let date = imagedate.pop();
+                        ctx.putImageData(date,0,0);
+                        console.log(imagedate);
+                    }
+                }
+            };
+        }
+
+    </script>
+</body>
+</html>
