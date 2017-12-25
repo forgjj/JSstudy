@@ -12,10 +12,10 @@
 <body>
     <header>
         <ul class="select">
-            <li class="iconfont"> &#xe6a2; </li>
-            <li class="iconfont"> &#xe9a0; </li>
-            <li class="iconfont"> &#xe645; </li>
-            <li class="iconfont"> &#xe625; </li>
+            <li class="iconfont news"> &#xe6a2; </li>
+            <li class="iconfont back"> &#xe9a0; </li>
+            <li class="iconfont"><a href=""> &#xe645; </a></li>
+            <li class="iconfont close"> &#xe625; </li>
         </ul>
         <ul class="shade">
             <li id="line" class="iconfont"> &#xe603; </li>
@@ -25,6 +25,7 @@
             <li id="rectangle" class="iconfont"> &#xe62f; </li>
             <li id="poly" class="iconfont"> &#xe62a; </li>
             <li id="polygon" class="iconfont"> &#xe642; </li>
+            <li id="eraser">橡皮</li>
         </ul>
         <ul class="style">
             <li id="fill" class="iconfont stylebtn"> &#xe690; </li>
@@ -34,9 +35,17 @@
             <li class="iconfont"><input type="color" id="strokeStyle"></li>
             <li class="iconfont "><input type="number" id="lineWidth"></li>
         </ul>
+        <ul>
+            <li class="font">A</li>
+            <li class="clipbtn">裁剪</li>
+        </ul>
+
     </header>
     <section>
-        <canvas width="1000" height="800"></canvas>
+        <!--<canvas width="1000" height="800"></canvas>-->
+        <div class="eraserc"></div>
+        <div class="mask"></div>
+        <div class="clip"></div>
     </section>
 </body>
 </html>
