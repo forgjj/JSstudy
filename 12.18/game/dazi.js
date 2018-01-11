@@ -13,7 +13,7 @@ class Code{
     constructor(){
         this.char = [['A','img/A.png'],['B','img/B.png'],['C','img/C.png'],['D','img/D.png'],['E','img/E.png'],['F','img/F.png'],['G','img/G.png'],['H','img/H.png'],['I','img/I.png'],['J','img/J.png'],['K','img/K.png'],['L','img/L.png'],['M','img/M.png'],['N','img/N.png'],['O','img/O.png'],['P','img/P.png'],['Q','img/Q.png'],['R','img/R.png'],['S','img/S.png'],['T','img/T.png'],['U','img/U.png'],['V','img/V.png'],['W','img/W.png'],['X','img/X.png'],['Y','img/Y.png'],['Z','img/Z.png']];
         /*字母表*/
-        this.s = 6;
+        this.s = 1;
         this.length = this.s;
         /*页面中存在的数量*/
         this.current  = [];
