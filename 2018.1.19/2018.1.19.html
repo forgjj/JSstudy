@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 解决兼容性问题 </title>
+</head>
+<body>
+
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+
+</body>
+</html>
+<script>
+    /*
+    * 解决兼容性问题
+    * 存在创建方法
+    * 先获取到所有元素
+    * 建一个数组 遍历
+    * 判断是否含有相同类名
+    * 存在 返回数组
+    *
+    * */
+
+    var boxs =  getClassName('box');
+    console.log(boxs);
+    function getClassName(classname){
+        if(document.getElementsByClassNames){
+            return getElementsByClassName(classname);
+        }else{
+            var alls = document.getElementsByTagName('*');
+            var newarr = [];
+            for(var i = 0;i < alls.length;i++){
+                if(checkClass(alls[i].className ,classname)){
+                    newarr.push(alls[i]);
+                }
+            }
+        }
+        return newarr;
+    }
+    /*
+    * 含多个类名时判断
+    * 按空格拆分
+    * 遍历是否含有某个类名
+    * 有 返回true
+    * 没有 返回false
+    *
+    * */
+    function checkClass(checkClass,classname){
+        var arr = checkClass.split(' ');
+        for(var i = 0;i<arr.length;i++){
+            if(arr[i] == classname){
+                return true;
+            }
+        }
+        return false;
+    }
+
+</script>

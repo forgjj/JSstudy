@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则</title>
+</head>
+<body>
+<script>
+    let str = '12ab34cd56aef78gh90';
+    let arr = [];
+    let temp = '';
+    function getNumber(){
+        for(let i=0;i<str.length;i++){
+            if(str[i] >=0 && str[i] <= 9){
+                temp += str[i];
+            }else{
+                if(temp){
+                    arr.push(temp);
+                    temp = '';
+                }
+            }
+        }
+        if(temp){
+            arr.push(temp);
+            temp = '';
+        }
+        return arr;
+    }
+    let brr = getNumber();
+    // console.log(brr);
+    //  正则
+    // let regexp = new RegExp('a','g');
+    // let regexp = /a/g;
+    // console.log(regexp.test(str));
+    // console.log(regexp.exec(str));
+    // console.log(regexp.exec(str));
+    let a = '<div> this is div </div>>';
+    let  regexp =  /<(\w{1,8})>([^<]*)<\/\1>/;
+    console.log(regexp.exec(a));
+
+</script>
+</body>
+</html>

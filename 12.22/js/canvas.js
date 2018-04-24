@@ -260,7 +260,6 @@ class Palette{
                 inputs = null;
             }.bind(this);
 
-
         }.bind(this);
     }*/
 
